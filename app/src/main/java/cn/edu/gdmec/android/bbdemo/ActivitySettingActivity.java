@@ -36,11 +36,11 @@ public class ActivitySettingActivity extends Activity implements View.OnClickLis
         rl_security_setting = (RelativeLayout) findViewById(R.id.rl_security_setting);
         rl_exit_login = (RelativeLayout) findViewById(R.id.rl_exit_login);
         rl_title_bar=(RelativeLayout)findViewById(R.id.title_bar);
-        tv_main_title.setText("设置");
+
         rl_title_bar.setBackgroundColor(Color.parseColor("#30B4FF"));
         tv_back = (TextView) findViewById(R.id.tv_back);
         tv_main_title = (TextView) findViewById(R.id.tv_main_title);
-
+        tv_main_title.setText("设置");
         tv_back.setOnClickListener(this);
         rl_modify_psw.setOnClickListener(this);
         rl_security_setting.setOnClickListener(this);
