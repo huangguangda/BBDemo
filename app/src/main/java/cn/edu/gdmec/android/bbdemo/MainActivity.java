@@ -5,13 +5,15 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.KeyEvent;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import cn.edu.gdmec.android.bbdemo.utils.AnalysisUtils;
 
 public class MainActivity extends FragmentActivity implements View.OnClickListener{
     private TextView et_user_name;
@@ -31,6 +33,39 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private ImageView bottom_bar_image_myinfo;
     private RelativeLayout bottom_bar_myinfo_btn;
     private LinearLayout main_bottom_bar;
+    protected long exitTime;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (data!=null){
+            boolean isLogin = data.getBooleanExtra("isLogin",false);
+            if (isLogin){
+                setSelectStatus(0);
+            }else {
+                setSelectStatus(2);
+            }
+        }
+    }
+
+    //2018/4/3
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event){
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN){
+            if ((System.currentTimeMillis() - exitTime) > 2000){
+                Toast.makeText(MainActivity.this,"再按一次退出博学谷",Toast.LENGTH_SHORT).show();
+                exitTime = System.currentTimeMillis();
+            }else{
+                this.finish();
+                if (AnalysisUtils.readLoginStatus(this)){
+                    AnalysisUtils.clearLoginStatus(this);
+                }
+                System.exit(0);
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode,event);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

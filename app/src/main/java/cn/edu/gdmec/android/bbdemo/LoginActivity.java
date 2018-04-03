@@ -63,12 +63,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
         //        立即找回密码的点击事件
-        tv_find_psw.setOnClickListener(new View.OnClickListener() {
-            @Override
+        tv_find_psw.setOnClickListener(new View.OnClickListener() {@Override
             public void onClick(View v) {
                 //跳转到找回密码页面
-                /*Intent intent = new Intent(LoginActivity.this,FindPswActivity.class);
-                startActivity(intent);*/
+                Intent intent = new Intent(LoginActivity.this,ActivityFindPswActivity.class);
+                startActivity(intent);
             }
         });
         //登录按钮点击事件
