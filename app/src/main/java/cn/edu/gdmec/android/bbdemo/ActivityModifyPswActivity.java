@@ -96,10 +96,6 @@ public class ActivityModifyPswActivity extends Activity implements View.OnClickL
             ActivitySettingActivity.instance.finish();
             ActivityModifyPswActivity.this.finish();
         }
-
-        // TODO validate success, do something
-
-
     }
 
     private void modifyPsw(String newPsw) {
@@ -115,7 +111,6 @@ public class ActivityModifyPswActivity extends Activity implements View.OnClickL
         String spPsw=sharedPreferences.getString(userName,"");
         Log.i("username",userName);
         Log.i("spPsw",spPsw);
-
         return spPsw;
     }
 }

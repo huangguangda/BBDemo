@@ -41,7 +41,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         if (data!=null){
             boolean isLogin = data.getBooleanExtra("isLogin",false);
             if (isLogin){
-                setSelectStatus(0);
+                setSelectStatus(2);
             }else {
                 setSelectStatus(2);
             }
@@ -106,7 +106,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             case 2:
                 bottom_bar_image_myinfo.setImageResource(R.drawable.main_my_icon_selected);
                 bottom_bar_text_myinfo.setTextColor(Color.parseColor("#0097F7"));
-
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_body,new FragmentMyinfoFragment()).commit();
                 bottom_bar_text_course.setTextColor(Color.parseColor("#666666"));
                 bottom_bar_text_exercise.setTextColor(Color.parseColor("#666666"));
 
@@ -169,7 +169,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 setSelectStatus(1);
                 break;
             case R.id.bottom_bar_myinfo_btn:
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_body,new FragmentMyinfoFragment()).commit();
+
                 setSelectStatus(2);
                 break;
         }

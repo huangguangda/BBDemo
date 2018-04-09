@@ -19,7 +19,7 @@
 
     <EditText
         android:id="@+id/et_user_name"
-        android:layout_width="12dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="35dp"
         android:layout_marginRight="35dp"
@@ -76,7 +76,7 @@
         android:layout_marginRight="35dp"
         android:id="@+id/btn_validate"
         android:background="@drawable/register_selector"
-        android:text="验 证"
+        android:text="设 置"
         android:textColor="@android:color/white"
         android:textSize="18sp"/>
 

@@ -48,13 +48,13 @@ public class ActivitySettingActivity extends Activity implements View.OnClickLis
 
     }
 
- /*   private void clearLoginStatus() {
+    private void clearLoginStatus() {
         SharedPreferences sp=getSharedPreferences("loginInfo", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor=sp.edit();
         editor.putBoolean("isLogin",false);
         editor.putString("loginUserName","");
         editor.commit();
-    }*/
+    }
 
     @Override
     public void onClick(View v) {
@@ -78,6 +78,7 @@ public class ActivitySettingActivity extends Activity implements View.OnClickLis
                 Intent data = new Intent();
                 data.putExtra("isLogin",false);
                 setResult(RESULT_OK,data);
+                //clearLoginStatus();
                 finish();
                 break;
         }
