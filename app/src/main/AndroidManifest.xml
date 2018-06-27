@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cn.edu.gdmec.android.bbdemo">
-
+    <!--原为android:theme="@style/AppTheme"-->
+    <!--去除ActionBar标题栏-->
+    <!--添加应用图标，app_icon-->
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/app_icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".RegisterActivity"></activity>
-        <activity android:name=".ActivitySettingActivity"></activity>
-        <activity android:name=".ActivityModifyPswActivity"></activity>
-        <activity android:name=".ActivityFindPswActivity"></activity>
+        <!--添加实现类-->
+        <activity android:name=".activity.MainActivity"></activity>
+        <activity android:name=".activity.LoginActivity"/>
+        <activity android:name=".activity.RegisterActivity"></activity>
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.FindPwdActivity" />
+        <activity android:name=".activity.ModifyPwdActivity" />
+        <!--<activity android:name=".activity.ChangeUserInfo" />-->
+        <activity android:name=".activity.ChangeUserInfoActivity" />
+        <activity android:name=".activity.UserInfoActivity"></activity>
     </application>
-
 </manifest>
